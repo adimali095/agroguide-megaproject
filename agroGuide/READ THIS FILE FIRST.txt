@@ -1,0 +1,22 @@
+** This file contains information about contents of this CD/DVD **
+
+★ Project Title :- " AgroGuide Plant Disease Detection Using Image Processing "
+
+★ Project Group Members :-
+
+		1) Pranav Pramod Charate
+		2) Aditya Vijay Mali
+		3) Siddhant Lagamanna Keste
+		4) Shreyash Santosh Gaikwad
+
+★ Project Guide :-
+		Mrs. P. R. Chougule
+
+-----------------------------------------------------------------------------------------------------
+
+★ Project Execution Steps :-
+
+1) Go to folder named as 'Required softwares'.
+2) Copy the 'AgroGuide.apk' file and paste it into your mobile device.
+3) Open the file and install the Android application on your smartphone.
+4) Launch the installed app and you're good to go.

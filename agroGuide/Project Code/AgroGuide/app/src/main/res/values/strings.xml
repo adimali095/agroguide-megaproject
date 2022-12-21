@@ -1,0 +1,693 @@
+<resources>
+    <string name="app_name">AgroGuide</string>
+    <string name="tagline">Farmer helper app</string>
+    <string name="applogo">AgroGuide</string>
+
+    <string name="save">Save</string>
+    <string name="new_task">New Task</string>
+    <string name="tasks">Tasks</string>
+
+    <string-array name="plants_name">
+        <item>Corn</item>
+        <item>Tomato</item>
+        <item>Potato</item>
+        <item>Apple</item>
+        <item>Cherry</item>
+        <item>Grape</item>
+    </string-array>
+
+    <string-array name="description">
+        <item>To detect corn plant disease </item>
+        <item>To detect tomato plant disease </item>
+        <item>To detect potato plant disease </item>
+        <item>To detect apple plant disease </item>
+        <item>To detect cherry plant disease </item>
+        <item>To detect grape plant disease </item>
+    </string-array>
+
+    <string name="detected_disease">Detected Disease</string>
+    <string name="description_of_disease">Description of disease\nHeavyweight disease dichii chiich shantabai
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+        numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+        optio, eaque rerum! Provident similique accusantium nemo autem.
+    </string>
+
+    <string name="steps_needed">Steps needed</string>
+    <string name="steps_one_by_one">
+        \n 1. Lorem ipsum dolor sit amet,
+        \n 2.2consectetur adipiscing elit,
+        \n 3.sed do eiusmod tempor incididunt
+        \n 4.ut labore et dolore magna aliqua.
+        \n 5.Ut enim ad minim veniam
+        \n 6.quis nostrud exercitation ullamco
+        \n 7.laboris nisi ut aliquip ex ea
+    </string>
+
+
+    <!--  Fertilizer Calculator  -->
+    <string name="amt_N_in">Enter N amount:</string>
+    <string name="total_amt_text">Enter your total area:</string>
+
+    <string-array name="area">
+        <item>1000 ft^2</item>
+        <item>Acre</item>
+    </string-array>
+
+    <string-array name="totalsize">
+        <item>ft^2</item>
+        <item>Acre(s)</item>
+    </string-array>
+    <string name="Values">
+        "Please enter your fertilizer values"
+    </string>
+    <string name="rate">
+        Input your application rate:
+    </string>
+    <string name="rate2">
+        lbs per
+    </string>
+    <string name="totalArea">
+        Input your total area:
+    </string>
+    <string name="calc_N">
+        Calc N
+    </string>
+    <string name="calc_P">
+        Calc P
+    </string>
+    <string name="calc_K">
+        calc K
+    </string>
+    <string name="title">
+        Fertilizer Calculator
+    </string>
+
+    <!--  Fertilizer Calculator  -->
+
+    <string-array name="disease_description_cure">
+
+        <!--
+         disease_description_cure hya single string-array mdhe
+         sgle disease_name, disease_description, disease_actual_setps defined ahet
+
+         0,3,6,9 indexes na disease_names ahet
+         1,4,7,10 indexes na disease_descriptions ahet
+         2,5,8,11 indexes na disease_actual steps ahet
+         -->
+
+
+        <!--    Dummy Text START
+
+        <item>
+            disease_name1
+        </item>
+        <item>
+            Description
+        </item>
+        <item>
+            Steps
+        </item>
+        <item>disease_name2</item>
+        <item>
+            2nd Description of disease\nHeavyweight disease dichii chiich shantabai
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+            molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
+            numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
+            option, eaque rerum! Provident similique accusantium nemo autem.
+        </item>
+        <item>
+            2nd
+            \n 1. Lorem ipsum dolor sit amet,
+            \n 2.2consectetur adipiscing elit,
+            \n 3.sed do eiusmod tempor incididunt
+            \n 4.ut labore et dolore magna aliqua.
+            \n 5.Ut enim ad minim veniam
+            \n 6.quis nostrud exercitation ullamco
+            \n 7.laboris nisi ut aliquip ex ea
+        </item>
+
+
+        Dummy Text END      -->
+
+
+        <!--  STARTING ACTUAL DISEASES  -->
+
+        <!--USE \u0026 for & -->
+
+        <!-- Tomato Diseases START-->
+
+        <!-- element start-->
+        <item>
+            Tomato___Bacterial_spot
+        </item>
+        <item>
+            Small dark spots with a yellow halo on leaves and fruits.
+            Stem and flower stalk also affected.
+            \n\nSymptoms can be seen on the foliage, stems, and fruits of tomatoes. Initially small yellow-green lesions appear on young leaves for bacterial spot,
+            whilst bacterial speck causes black spots with a narrow yellow halo. They are usually more numerous on leaf margins or tips, which may appear deformed and twisted.
+            \n\nIn severe cases, the spots of bacterial speck may coalesce or overlap, resulting in larger and irregular lesions.
+            Bacterial spot lesions can enlarge from 0.25 cm to 0.5 cm and become tan to brownish-red, which will eventually look like shot holes when the center dries up.
+            Bacterial spot produces similar lesion of fruits as it does on the leaves and eventually roughen, becoming brown and scabbed. Bacterial speck causes tiny, slightly raised black specks.
+            It is difficult to distinguish between these two diseases at an early stage.
+        </item>
+        <item>
+            Chemical Treatment :
+
+            \n\n- Copper Oxychloride 50.0% WP
+            \n- Mancozeb 75.0% WP
+            \n- Streptomycin Sulfate 90.0% SP, Tetracycline hydrochloride 10.0% SP
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Tomato___Early_blight
+        </item>
+        <item>
+            Dark spots with concentric growth and yellow halos on leaves.
+            Leaves dry out and fall off.
+            Fruits may start to rot and eventually drop.
+
+            \n\nSymptoms of early blight occur on older foliage, stem, and fruits. Gray to brown spots appear on leaves and gradually grow in a concentric manner around a clear center - the characteristic "bullseye" formation.
+            These lesions are surrounded by a bright yellow halo. As the disease progresses, entire leaves may turn chlorotic and shed, leading to significant defoliation.
+            When leaves die and fall, fruits become more vulnerable to sun scald. The same type of spots with a clear center appears on stems and fruits. The fruits begin to rot and may eventually fall off.
+
+        </item>
+        <item>
+            Chemical Treatment :
+
+            \n\n- Cymoxanil 22.1% SC, Famoxadone 16.6% Sc
+            \n- Chlorothalonil 33.1% SC, Metalaxyl-M 3.3% SC
+            \n- Metiram 55.0% WG, Pyraclostrobin 5.0% WG
+            \n- Mancozeb 75.0% WP
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Tomato___Late_blight
+        </item>
+        <item>
+            Brown leaf spots - start from margin.
+            White covering on the underside of leaves.
+            Grey or brown wrinkled stains on fruits.
+            Hardened fruit flesh spots and fruit decay.
+
+            \n\nBrownish-green spots appear on the leaf margins and leaf tops. Later, large areas of the leaves turn brown completely. During wet weather, lesions on the lower side of the leaves may be covered with a gray to white moldy growth, making it easier to distinguish healthy from dead leaf tissue.
+            \n\nAs the disease progresses, the foliage runs brown, curls and dries. In some cases, the sharply delimited brown spots and the white covering also appear on the stems, branches, and petioles.
+            \n\nGreyish-green to dirty-brown and wrinkled stains appear on the fruits. At these spots, the fruit flesh is hardened.ot dry weather causes it spread more.
+
+        </item>
+        <item>
+            Chemical Treatment:
+
+            \n\n- Cymoxanil 22.1% 16.6% SC, Famoxadone 16.6% SC
+            \n- Chlorothalonil 33.1% SC, Metalaxyl-M 3.3% SC
+            \n- Mancozeb 75.0% WP
+            \n- Mandipropamid 23.4% SC
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Tomato___Leaf_Mold
+        </item>
+        <item>
+            Symptoms commonly occur on both sides of the foliage and sometimes on fruit.
+            Older leaves are infected first and then the disease slowly moves up towards young leaves. On the upper leaf surface, small, diffuse, pale green or yellowish spots with indefinite margins appear.
+            On the underside, olive green to grayish purple and velvety patches develop below the leaf spots. These are composed of spore-producing structures and spore masses (conidia).
+            \n\nOver time, as the spots large, the color of the infected leaf changes from yellowish (chlorosis) to brown (necrosis) and the leaf begins to curl and dry. The leaves will drop prematurely, leading to defoliation in severe cases. Occasionally, this pathogen causes disease on the blossoms or fruits with various symptoms.
+            The blossoms may turn black and will be killed before fruit set. Green and ripe fruits will develop smooth black irregular area on the stem end. As the disease progresses, the infected area becomes sunken, dry and leathery.
+
+        </item>
+        <item>
+            Recommended compounds in field use are :
+            \n\n- Chlorothalonil
+            \n- Maneb
+            \n- Mancozeb
+            \n- Copper formulations
+            \n\nFor greenhouses :
+            \n\nDifenoconazole, Mandipropamid, Cymoxanil, Famoxadone and Cyprodinil are recommended.
+
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Tomato___healthy
+        </item>
+        <item>
+            This is a healthy tomato plant
+        </item>
+        <item>
+            Water and nurture your plant daily.
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Tomato___not_tomato
+        </item>
+        <item>
+            This is not a tomato plant leaf!
+        </item>
+        <item>
+            Capture a photo of plant leaf and pass it here !
+        </item>
+        <!-- element end-->
+
+        <!-- Tomato Diseases END-->
+
+
+        <!-- Potato Diseases START-->
+
+        <!-- element start-->
+        <item>
+            Potato___Early_blight
+        </item>
+        <item>
+            The disease is caused by the fungus Alternaria solani, which can also afflict tomatoes and other members of the potato family.
+            \nPotatoes become infected with early blight when foliage has become excessively wet due to rain, fog, dew, or irrigation.
+            \n\nEarly blight rarely develops early; it actually usually affects mature foliage rather than young, tender leaves.
+
+        </item>
+        <item>
+            - Avoid overhead irrigation and allow for sufficient aeration between plants to allow the foliage to dry as quickly as possible.
+            \n- Practice a 2-year crop rotation. That is, do not replant potatoes or other crops in this family for 2 years after a potato crop has been harvested.
+            \n- Keep the potato plants healthy and stress free by providing adequate nutrition and sufficient irrigation, especially later in the growing season after flowering when plants are most susceptible to the disease.
+            \n -Only dig the tubers up when they are completely mature to prevent from damaging them. Any damage done at harvest can additionally facilitate the disease.
+
+             \n\nChemical Treatment:
+             \n\n- Chlorothalonil 75% WP
+             \n- Mancozeb 75% WP (fungicide)
+
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Potato___Late_blight
+        </item>
+        <item>
+            What is Potato Late Blight?
+            This disease is caused by the water mold Phytophthora infestans.
+            \nLate blight of potato is identified by blackish/brown lesions on leaves and stems that may be small at first and appear water-soaked or have chlorotic borders but expand rapidly and the entire leaf becomes become necrotic.
+            \n\nThe disease occurs in humid regions with temperatures ranging between 4 and 29 °C. Hot dry weather causes it spread more.
+
+        </item>
+        <item>
+            - Destroy all cull and volunteer potatoes.
+            \n- Plant late blight-free seed tubers.
+            \n- Do not mix seed lots because cutting can transmit late blight.
+            \n- Avoid planting problem areas that may remain wet for extended periods or may be difficult to spray.
+            \n- Quickly destroy hot spots of late blight.
+            \n- Kill vines completely two to three weeks before harvest.
+            \n- Applying phosphorous acid to potatoes after harvest and before piling can prevent infection and the spread of late blight in storage.
+
+            \n\nChemical Treatment:
+            \n\n- Cymoxanil 8% + Mancozeb 64% (fungicide)
+            \n- Azoxystrobin (fungicide)
+
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Potato___healthy
+        </item>
+        <item>
+            This is a healthy potato plant.!
+        </item>
+        <item>
+            Make sure to water and nurture your plant daily..!!
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Potato___not_potato
+        </item>
+        <item>
+            This isn\'t a potato plant leaf!
+        </item>
+        <item>
+            Capture a photo of plant leaf and pass it here !
+        </item>
+        <!-- element end-->
+
+
+        <!-- Potato Diseases END-->
+
+
+        <!-- Apple Diseases START-->
+
+
+        <!-- element start-->
+        <item>
+            Apple___not_apple
+        </item>
+        <item>
+            This is not an apple plant leaf!!
+        </item>
+        <item>
+            Capture a photo of plant leaf and pass it here !
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Apple___healthy
+        </item>
+        <item>
+            This is a healthy apple plant leaf!
+        </item>
+        <item>
+            Make sure to water and nurture your plant daily!
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Apple___Apple_scab
+        </item>
+        <item>
+            Apple scab is the most common disease of apple and crabapple trees in Minnesota. Scab is caused by a fungus that infects both leaves and fruit. Scabby fruit are often unfit for eating.
+            \nInfected leaves have olive green to brown spots. Leaves with many leaf spots turn yellow and fall off early.
+
+        </item>
+        <item>
+            - Grow scab-resistant cultivars of apples. Apples with good resistance include Akane, Chehalis, Liberty, Prima and Tydeman Red.
+            \n- Apply nitrogen to leaves that have fallen to the ground in the fall to enhance decomposition of fallen leaves and make them more palatable to earthworms. Hand apply a liquid fish solution or 16-16-16 fertilizer to help with the decomposition.
+            \n- Shred fallen leaves in the fall with a mower to help speed up decomposition.
+            \n- Prune your apple trees to open up branching and allow more air circulation.
+            \n- When watering your apple trees, avoid getting foliage wet.
+            \n- Apply dolomitic lime in the fall, after leaf drop, to increase pH and to help reduce fungal spores in the spring.
+            \n- Spray fungicide – Bonide Captan, wettable sulfur, summer lime sulfur or Spectracide Immunox – when temperatures are above 60 degrees and the leaves or blooms are wet.
+
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Apple___Black_rot
+        </item>
+        <item>
+            Black rot is caused by the fungus Diplodia seriata (syn Botryosphaeria obtusa). The fungus can infect dead tissue as well as living trunks, branches, leaves and fruits.
+            \nThe black rot fungi survive Minnesota winters in branch cankers and mummified fruit (shriveled and dried fruit) attached to the tree
+
+
+        </item>
+        <item>
+            - Prune out dead or diseased branches.
+            \n- Pick all dried and shriveled fruits remaining on the trees.
+            \n- Remove infected plant material from the area.
+            \n- All infected plant parts should be burned, buried or sent to a municipal composting site.
+            \n- Be sure to remove the stumps of any apple trees you cut down. Dead stumps can be a source of spores.
+
+
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Apple___Cedar_apple_rust
+        </item>
+        <item>
+            Cedar apple rust, or CAR, is a peculiar fungal disease that affects both apple trees and red cedar. Spores from one tree only affect the other and vice versa.
+            \nFor instance, the spores on apple trees only infect cedar while the spores found on cedar trees only affect apples.
+
+        </item>
+        <item>
+            - Do not plant eastern red cedar and juniper plants within a few hundred yards of susceptible Rosaceae plants. This will reduce diseases problems but not completely eliminate them.
+            \n- Inspect nearby juniper and red cedar trees in late winter or early spring.
+            \n- Prune and remove brown, woody galls found before orange, gelatinous structures form in the spring. This will help reduce the level of infection on nearby Rosaceae plants.
+            \n- Prune and remove infected twigs or branches on Rosaceae plants if they occur.
+            \n- Rust resistant cultivars of hawthorn are difficult to find. Often, a cultivated variety will have resistance to one of the rusts (such as cedar-apple rust) and be highly susceptible (very likely to be infected by) to a different rust (such as hawthorn rust).
+            \n- Plant disease-resistant varieties of crabapple and apple when possible. Do not plant Beacon and Wealthy apple varieties in areas where cedar apple rust has been a problem in the past. Among apple varieties commonly grown in Minnesota, these are the only two that are likely to be significantly damaged by rust.
+
+
+        </item>
+        <!-- element end-->
+
+
+        <!-- Apple Diseases END-->
+
+
+        <!-- Cherry Diseases START-->
+
+        <!-- element start-->
+        <item>
+            Cherry_(including_sour)___healthy
+        </item>
+        <item>
+            This is a healthy cherry plant leaf!
+        </item>
+        <item>
+            Make sure to water and nurture your plant daily!
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Cherry_(including_sour)___Powdery_mildew
+        </item>
+        <item>
+            Powdery mildew of sweet and sour cherry is caused by Podosphaera clandestina, an obligate biotrophic fungus.
+            \nMid- and late-season sweet cherry (Prunus avium) cultivars are commonly affected, rendering them unmarketable due to the covering of white fungal growth on the cherry surface
+
+        </item>
+        <item>
+            - Water early in the morning to let the tissue and soil dry as quickly as possible.
+            \n- Avoid overhead watering to reduce relative humidity.
+            \n- Fungicides may be used for managing powdery mildew. For best results, fungicide treatments should begin before the overwintering fungus can infect new growth.
+        </item>
+        <!-- element end-->
+
+        <!-- element start-->
+        <item>
+            Cherry__not_cherry
+        </item>
+        <item>
+            This is not a cherry plant leaf!!
+        </item>
+        <item>
+            Capture a photo of plant leaf and pass it here !
+        </item>
+        <!-- element end-->
+
+
+        <!-- Cherry Diseases END-->
+
+
+        <!-- Grape Diseases START-->
+
+        <!-- element start-->
+        <item>
+            Grape___healthy
+        </item>
+        <item>
+            This is a healthy grape plant leaf!
+        </item>
+        <item>
+            Make sure to water and nurture your plant daily!
+        </item>
+        <!-- element end-->
+        <!-- element start-->
+        <item>
+            Grape___not_grape
+        </item>
+        <item>
+            This is not a grape plant leaf!!
+        </item>
+        <item>
+            Capture a photo of plant leaf and pass it here !
+        </item>
+        <!-- element end-->
+        <!-- element start-->
+        <item>
+            Grape___Black_rot
+        </item>
+        <item>
+            Black Rot of Grapes is caused by the fungus Guignardia bidwellii, is a serious disease of cultivated and wild grapes.
+            \nThe disease is most destructive in warm, wet seasons. It attacks all green parts of the vine – leaves, shoots, leaf and fruit stems, tendrils, and fruit.
+
+        </item>
+        <item>
+            Management :
+            \n\n- Proper grape management in the field is important to control black rot disease. The placement of the grape plants is important to provide for proper aeration and lighting.
+            \n- Choose a planting site where the vines will be exposed to full sun and good air circulation.
+            \n- Proper training of grape vines should be practiced. Many people use trellising to keep the vines off the ground. Trellising is a form of plant training, which is the arrangement of plant parts spatially to optimize productivity.
+            \n- Having the grape vines off the ground reduces the time that vines remain wet from dew and rain and thus limits the amount of infection. As the current seasons growth occurs, tie the new growth in a spatial manner to allow for air circulation and sunlight to affect the whole grape plant.
+            \n- A proper pruning technique is another cultural control method to limit diseases. Prune each vine every year during the dormant period. This is done by using the weight of the previous year’s cane growth (1- yr-old canes) to determine how many buds should be retained for the current production year. Up to four pounds of pruning can occur during the season.
+            \n- Remove excess growth, diseased and overwintering berries, leaves, and tendrils from the vineyard, and burn or otherwise destroy them.[2] This practice reduces inoculum of the fungus, thus limiting disease. During the season, minor pruning to train the canopy growth may occur to help with aeration.
+
+            \n\nChemical Control :
+            \n\n- Sovran 50WG
+            \n- Flint 50WG
+            \n- Abound Flowable (2.08F)
+            \n- Pristine 38WDG
+
+            \n\nSovran 50WG is registered for control of black rot. The Sovran label gives different use rates for control of different diseases. For black rot the rate is 3.2-4.8 oz/A. Sovran is excellent for control of black rot.
+
+
+        </item>
+        <!-- element end-->
+        <!-- element start-->
+        <item>
+            Grape__Esca(Black_Measles)
+        </item>
+        <item>
+            Symptoms. Grapevine measles, also called esca, black measles or Spanish measles, has long plagued grape growers with its cryptic expression of symptoms and, for a long time, a lack of identifiable causal organism(s).
+            \nThe name \'measles\' refers to the superficial spots found on the fruit.
+        </item>
+        <item>
+            Management:
+            \n\n- Delayed pruning
+            \n- Double pruning
+            \n- Applications of pruning-wound protectants
+            \n\nChemical Control:
+            \n\n1. Thiophanete-Methyl
+            \n2. Myclobutanil
+            \n3. Tetraconazole
+        </item>
+        <!-- element end-->
+        <!-- element start-->
+        <item>
+            Grape__Leaf_blight_(Isariopsis_Leaf_Spot)
+        </item>
+        <item>
+            What is leaf blight?
+            The yellow-green disease spots gradually appear on the fronts of the grape leaves with downy mildew, and white frosty mildew appears on the backs of the leaves. Leaf blight produces dark brown patches on the surface of grape leaves.
+
+        </item>
+        <item>
+            Management:
+            \n\nMethods used for other diseases of grapes can also be applied here.
+            \n\nChemical Control:
+            \n\n- Sodium Bicarbonate and/or Ammonium Bicarbonate with proportion of 0.5 %
+        </item>
+        <!-- element end-->
+
+
+        <!-- Grape Diseases END-->
+
+
+        <!-- Corn Diseases START -->
+
+
+        <!-- element start-->
+        <item>
+            Corn_(maize)___healthy
+        </item>
+        <item>
+            This is a healthy corn plant leaf!
+        </item>
+        <item>
+            Make sure to water and nurture your plant daily!
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Corn_(maize)___Not_Corn
+        </item>
+        <item>
+            This is not a corn plant leaf!!
+        </item>
+        <item>
+            Capture a photo of plant leaf and pass it here !
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot
+        </item>
+        <item>
+            Small, pinpoint lesions surrounded by yellow halos.
+            Lesions coalesce and blighting of the whole leaf may result.
+            \n\nSmall necrotic (brown or tan) spots that may have a yellow chlorotic halo appear on lower leaves, usually before flowering.
+            Gradually these lesions will turn grayish and appear on younger leaves, too.
+            \n\nAs the disease progresses, they enlarge into elongated, rectangular lesions that run parallel to the leaf veins.
+            In optimal conditions (warm temperatures, high humidity and wet leaves), they can coalesce and engulf the whole leaf.
+            If this happens before grain filling there can be considerable yield losses.
+            The leaf blight can weaken the plants and sometimes soften the stalks, leading to lodging.
+
+        </item>
+        <item>
+            No biological control is available to control this disease.
+            \nSo we recommend to advanced stages of a disease, please follow chemical control measures.
+
+            \n\nChemical Control :
+            \n\n- Pluto-M45
+            \n- Zeb M-45
+            \n- Macoban M-45
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Corn_(maize)___Common_rust_
+        </item>
+        <item>
+            Lesions begin as flecks on leaves that develop into small tan spots.
+            Found on both upper and lower leaf surfaces Pustules turn dark brown to black late in the season.
+            Minute flecks appear on both sides of the leaves and slowly develop into small, tan, slightly raised spots.
+            \n\nThese mainly elongated spots later turn into powdery, golden-brown pustules loosely scattered in patches on upper and lower sides.
+            The color can change to black as the plant matures. Contrarily to other rust diseases, symptoms are not usually present on other plant parts, such as stalks, sheath leaves or husks.
+            \n\nHowever, stalks tend to grow weak and soft and are prone to lodging.
+            Younger leaf tissue is more susceptible to fungal infection than mature leaves.
+            Plants infected during the early stages can show chlorosis of leaves and death, leading to high yield losses if upper leaves are affected.
+
+        </item>
+        <item>
+            - Always consider an integrated approach with preventive measures together with biological treatments if available.
+            \n- The application of fungicides can be beneficial when used on susceptible varieties. Apply a foliar fungicide early in the season if rust is bound to spread rapidly due to the weather conditions.
+
+            \n\nChemical Control :
+            \n\n- Mancozeb
+            \n- Pyraclostrobin
+            \n- Pyraclostrobin + Metconazole,
+            \n- Azoxystrobin + Propiconazole
+
+
+        </item>
+        <!-- element end-->
+
+
+        <!-- element start-->
+        <item>
+            Corn_(maize)___Northern_Leaf_Blight
+        </item>
+        <item>
+            Symptoms occur first on the lower leaves, with long narrow tan lesions parallel to leaf margins with dark margins 25-150mm long.
+            The disease causes the leaves to dry out, wither and die.
+            \n\nThe symptoms appear as small, oval, water-soaked spots on the lower leaves first. As the disease progresses, they start to appear on the upper part of the plant.
+            Older spots slowly grow into tan, long cigar-shaped necrotic lesions with distinct dark specks and pale green, water-soaked borders.
+            \n\nThese lesions later coalesce and engulf a large part of the leaf blade and stalk, sometimes leading to death and lodging.
+            If the infection spreads to the upper parts of the plant during the development of the cob. Severe yield losses can occur (up to 70%)
+
+        </item>
+        <item>
+            - Bio-fungicides based on Trichoderma harzianum, or Bacillus subtilis can be applied at different stages to decrease the risk of infection. Application of sulfur solutions is also effective.
+            \n\nChemical Control :
+            \n\n- Mancozeb 75.0% WP
+
+        </item>
+        <!-- element end-->
+
+
+        <!-- Corn Diseases END -->
+
+    </string-array>
+
+</resources>

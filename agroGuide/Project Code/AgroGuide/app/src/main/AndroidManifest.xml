@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.recycler"
+    android:versionCode="001"
+    android:versionName="V1.1" >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_new"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_new_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Recycler"
+        tools:replace="android:icon,android:roundIcon,android:theme">
+
+
+        <!--  Market Price Activities  -->
+        <activity
+            android:name="com.example.market_price.MarketPriceActivity"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <activity
+            android:name="com.example.market_price.FilterActivity"
+            android:exported="false" />
+        <!--  Market Price Activities  -->
+
+        <!--  News Activities  -->
+        <activity
+            android:name="com.example.newsworld.NewsWorld"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <activity
+            android:name="com.example.newsworld.NewsDeatilActivity"
+            android:exported="false"
+            tools:replace="android:exported" />
+        <!--  News Activities  -->
+
+        <!--  To Do List Activities  -->
+        <activity
+            android:name="com.example.todolist.ToDoActivity"
+            android:exported="false"
+            tools:replace="android:exported" />
+
+        <!--  To Do List Activities  -->
+
+        <!--  Fertilizer Calculator Activities  -->
+        <activity
+            android:name=".fertilizer_calculator.FertilizerCalculator"
+            android:exported="false" />
+        <!--  Fertilizer Calculator Activities  -->
+
+        <!--  Weather Details Activities  -->
+        <activity
+            android:name=".weather_details.WeatherDetails"
+            android:exported="false" />
+        <!--  Weather Details Activities  -->
+
+        <!--  Disease Detection Activities  -->
+        <activity
+            android:name=".disease_detection.DiseaseDetection_3"
+            android:exported="false" />
+        <activity
+            android:name=".disease_detection.DiseaseDetection_2"
+            android:exported="false" />
+        <activity
+            android:name=".disease_detection.DiseaseDetection_1"
+            android:exported="false"
+            android:launchMode="singleTop" />
+        <!--  Disease Detection Activities  -->
+
+        <!--  Main Activities  -->
+        <activity
+            android:name=".Dashboard"
+            android:exported="false"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".UserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".SIgnUp"
+            android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--  Disease Detection Activities  -->
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

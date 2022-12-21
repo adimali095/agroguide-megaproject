@@ -1,0 +1,285 @@
+<html>
+<head>
+<title>WeatherDetails.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+.ln { color: #606366; font-weight: normal; font-style: normal; }
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+WeatherDetails.java</font>
+</center></td></tr></table>
+<pre><a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">com.example.recycler.weather_details</span><span class="s0">;</span>
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a><span class="s0">import </span><span class="s1">android.app.AlertDialog</span><span class="s0">;</span>
+<a name="l4"><span class="ln">4    </span></a><span class="s0">import </span><span class="s1">android.content.DialogInterface</span><span class="s0">;</span>
+<a name="l5"><span class="ln">5    </span></a><span class="s0">import </span><span class="s1">android.content.Intent</span><span class="s0">;</span>
+<a name="l6"><span class="ln">6    </span></a><span class="s0">import </span><span class="s1">android.content.pm.PackageManager</span><span class="s0">;</span>
+<a name="l7"><span class="ln">7    </span></a><span class="s0">import </span><span class="s1">android.net.Uri</span><span class="s0">;</span>
+<a name="l8"><span class="ln">8    </span></a><span class="s0">import </span><span class="s1">android.os.AsyncTask</span><span class="s0">;</span>
+<a name="l9"><span class="ln">9    </span></a><span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<a name="l10"><span class="ln">10   </span></a><span class="s0">import </span><span class="s1">android.provider.Settings</span><span class="s0">;</span>
+<a name="l11"><span class="ln">11   </span></a><span class="s0">import </span><span class="s1">android.util.Log</span><span class="s0">;</span>
+<a name="l12"><span class="ln">12   </span></a><span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<a name="l13"><span class="ln">13   </span></a><span class="s0">import </span><span class="s1">android.widget.ProgressBar</span><span class="s0">;</span>
+<a name="l14"><span class="ln">14   </span></a><span class="s0">import </span><span class="s1">android.widget.RelativeLayout</span><span class="s0">;</span>
+<a name="l15"><span class="ln">15   </span></a><span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+<a name="l16"><span class="ln">16   </span></a>
+<a name="l17"><span class="ln">17   </span></a><span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+<a name="l18"><span class="ln">18   </span></a><span class="s0">import </span><span class="s1">androidx.core.content.ContextCompat</span><span class="s0">;</span>
+<a name="l19"><span class="ln">19   </span></a>
+<a name="l20"><span class="ln">20   </span></a><span class="s0">import </span><span class="s1">com.example.recycler.MainActivity</span><span class="s0">;</span>
+<a name="l21"><span class="ln">21   </span></a><span class="s0">import </span><span class="s1">com.example.recycler.R</span><span class="s0">;</span>
+<a name="l22"><span class="ln">22   </span></a>
+<a name="l23"><span class="ln">23   </span></a><span class="s0">import </span><span class="s1">org.json.JSONException</span><span class="s0">;</span>
+<a name="l24"><span class="ln">24   </span></a><span class="s0">import </span><span class="s1">org.json.JSONObject</span><span class="s0">;</span>
+<a name="l25"><span class="ln">25   </span></a>
+<a name="l26"><span class="ln">26   </span></a><span class="s0">import </span><span class="s1">java.text.SimpleDateFormat</span><span class="s0">;</span>
+<a name="l27"><span class="ln">27   </span></a><span class="s0">import </span><span class="s1">java.util.Date</span><span class="s0">;</span>
+<a name="l28"><span class="ln">28   </span></a><span class="s0">import </span><span class="s1">java.util.Locale</span><span class="s0">;</span>
+<a name="l29"><span class="ln">29   </span></a>
+<a name="l30"><span class="ln">30   </span></a>
+<a name="l31"><span class="ln">31   </span></a><span class="s0">public class </span><span class="s1">WeatherDetails </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+<a name="l32"><span class="ln">32   </span></a>
+<a name="l33"><span class="ln">33   </span></a>    <span class="s0">final </span><span class="s1">String API = </span><span class="s2">&quot;d70cb6edb5784b8eb89014e9a7c06c57&quot;</span><span class="s0">;</span>
+<a name="l34"><span class="ln">34   </span></a>
+<a name="l35"><span class="ln">35   </span></a>    <span class="s0">final </span><span class="s1">String TAG = MainActivity.</span><span class="s0">class</span><span class="s1">.getSimpleName()</span><span class="s0">;</span>
+<a name="l36"><span class="ln">36   </span></a>
+<a name="l37"><span class="ln">37   </span></a>    <span class="s1">ProgressBar loader</span><span class="s0">;</span>
+<a name="l38"><span class="ln">38   </span></a>    <span class="s1">RelativeLayout mainContainer</span><span class="s0">;</span>
+<a name="l39"><span class="ln">39   </span></a>    <span class="s1">TextView errorText</span><span class="s0">;</span>
+<a name="l40"><span class="ln">40   </span></a>    <span class="s1">TextView iAddress</span><span class="s0">, </span><span class="s1">iUpdated_at</span><span class="s0">, </span><span class="s1">iStatus</span><span class="s0">, </span><span class="s1">iTemp</span><span class="s0">, </span><span class="s1">iTemp_min</span><span class="s0">, </span><span class="s1">iTemp_max</span><span class="s0">, </span><span class="s1">iSunrise</span><span class="s0">, </span><span class="s1">iSunset</span><span class="s0">, </span><span class="s1">iWind</span><span class="s0">, </span><span class="s1">iPressure</span><span class="s0">, </span><span class="s1">iHumidity</span><span class="s0">;</span>
+<a name="l41"><span class="ln">41   </span></a>
+<a name="l42"><span class="ln">42   </span></a>    <span class="s1">String latitude</span><span class="s0">, </span><span class="s1">longitude</span><span class="s0">;</span>
+<a name="l43"><span class="ln">43   </span></a>
+<a name="l44"><span class="ln">44   </span></a>    <a href="WeatherGpsTracker.java.html">WeatherGpsTracker</a> <span class="s1">gpsTracker</span><span class="s0">;</span>
+<a name="l45"><span class="ln">45   </span></a>
+<a name="l46"><span class="ln">46   </span></a>    <span class="s1">@Override</span>
+<a name="l47"><span class="ln">47   </span></a>    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+<a name="l48"><span class="ln">48   </span></a>        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+<a name="l49"><span class="ln">49   </span></a>        <span class="s1">setContentView(R.layout.activity_weather_details)</span><span class="s0">;</span>
+<a name="l50"><span class="ln">50   </span></a>
+<a name="l51"><span class="ln">51   </span></a>        <span class="s1">loader = findViewById(R.id.loader)</span><span class="s0">;</span>
+<a name="l52"><span class="ln">52   </span></a>        <span class="s1">mainContainer = findViewById(R.id.mainContainer)</span><span class="s0">;</span>
+<a name="l53"><span class="ln">53   </span></a>        <span class="s1">errorText = findViewById(R.id.errorText)</span><span class="s0">;</span>
+<a name="l54"><span class="ln">54   </span></a>
+<a name="l55"><span class="ln">55   </span></a>        <span class="s1">iAddress = findViewById(R.id.address)</span><span class="s0">;</span>
+<a name="l56"><span class="ln">56   </span></a>        <span class="s1">iUpdated_at = findViewById(R.id.updated_at)</span><span class="s0">;</span>
+<a name="l57"><span class="ln">57   </span></a>        <span class="s1">iStatus = findViewById(R.id.status)</span><span class="s0">;</span>
+<a name="l58"><span class="ln">58   </span></a>        <span class="s1">iTemp = findViewById(R.id.temp)</span><span class="s0">;</span>
+<a name="l59"><span class="ln">59   </span></a>        <span class="s1">iTemp_min = findViewById(R.id.temp_min)</span><span class="s0">;</span>
+<a name="l60"><span class="ln">60   </span></a>        <span class="s1">iTemp_max = findViewById(R.id.temp_max)</span><span class="s0">;</span>
+<a name="l61"><span class="ln">61   </span></a>        <span class="s1">iSunrise = findViewById(R.id.sunrise)</span><span class="s0">;</span>
+<a name="l62"><span class="ln">62   </span></a>        <span class="s1">iSunset = findViewById(R.id.sunset)</span><span class="s0">;</span>
+<a name="l63"><span class="ln">63   </span></a>        <span class="s1">iWind = findViewById(R.id.wind)</span><span class="s0">;</span>
+<a name="l64"><span class="ln">64   </span></a>        <span class="s1">iPressure = findViewById(R.id.pressure)</span><span class="s0">;</span>
+<a name="l65"><span class="ln">65   </span></a>        <span class="s1">iHumidity = findViewById(R.id.humidity)</span><span class="s0">;</span>
+<a name="l66"><span class="ln">66   </span></a>        <span class="s3">//ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);</span>
+<a name="l67"><span class="ln">67   </span></a>    <span class="s1">}</span>
+<a name="l68"><span class="ln">68   </span></a>
+<a name="l69"><span class="ln">69   </span></a>    <span class="s1">@Override</span>
+<a name="l70"><span class="ln">70   </span></a>    <span class="s0">protected void </span><span class="s1">onResume() {</span>
+<a name="l71"><span class="ln">71   </span></a>        <span class="s0">super</span><span class="s1">.onResume()</span><span class="s0">;</span>
+<a name="l72"><span class="ln">72   </span></a>        <span class="s1">loader.setVisibility(View.VISIBLE)</span><span class="s0">;</span>
+<a name="l73"><span class="ln">73   </span></a>        <span class="s1">mainContainer.setVisibility(View.GONE)</span><span class="s0">;</span>
+<a name="l74"><span class="ln">74   </span></a>        <span class="s1">errorText.setVisibility(View.GONE)</span><span class="s0">;</span>
+<a name="l75"><span class="ln">75   </span></a>
+<a name="l76"><span class="ln">76   </span></a>        <span class="s0">try </span><span class="s1">{</span>
+<a name="l77"><span class="ln">77   </span></a>            <span class="s0">if </span><span class="s1">(ContextCompat.checkSelfPermission(getApplicationContext()</span><span class="s0">, </span><span class="s1">android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {</span>
+<a name="l78"><span class="ln">78   </span></a>                <span class="s1">getLocation()</span><span class="s0">;</span>
+<a name="l79"><span class="ln">79   </span></a>            <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+<a name="l80"><span class="ln">80   </span></a>                <span class="s1">showSettingsAlertPer()</span><span class="s0">;</span>
+<a name="l81"><span class="ln">81   </span></a>            <span class="s1">}</span>
+<a name="l82"><span class="ln">82   </span></a>            <span class="s0">new </span><span class="s1">weatherTask().execute()</span><span class="s0">;</span>
+<a name="l83"><span class="ln">83   </span></a>        <span class="s1">} </span><span class="s0">catch </span><span class="s1">(Exception e) {</span>
+<a name="l84"><span class="ln">84   </span></a>            <span class="s1">e.printStackTrace()</span><span class="s0">;</span>
+<a name="l85"><span class="ln">85   </span></a>        <span class="s1">}</span>
+<a name="l86"><span class="ln">86   </span></a>    <span class="s1">}</span>
+<a name="l87"><span class="ln">87   </span></a>
+<a name="l88"><span class="ln">88   </span></a>    <span class="s0">public void </span><span class="s1">getLocation() {</span>
+<a name="l89"><span class="ln">89   </span></a>        <span class="s1">gpsTracker = </span><span class="s0">new <a href="WeatherGpsTracker.java.html">WeatherGpsTracker</a></span><span class="s1">(WeatherDetails.</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l90"><span class="ln">90   </span></a>        <span class="s0">if </span><span class="s1">(gpsTracker.canGetLocation()) {</span>
+<a name="l91"><span class="ln">91   </span></a>            <span class="s0">double </span><span class="s1">lat = gpsTracker.getLatitude()</span><span class="s0">;</span>
+<a name="l92"><span class="ln">92   </span></a>            <span class="s0">double </span><span class="s1">lon = gpsTracker.getLongitude()</span><span class="s0">;</span>
+<a name="l93"><span class="ln">93   </span></a>            <span class="s1">latitude = String.valueOf(lat)</span><span class="s0">;</span>
+<a name="l94"><span class="ln">94   </span></a>            <span class="s1">longitude = String.valueOf(lon)</span><span class="s0">;</span>
+<a name="l95"><span class="ln">95   </span></a>        <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+<a name="l96"><span class="ln">96   </span></a>            <span class="s1">showSettingsAlert()</span><span class="s0">;</span>
+<a name="l97"><span class="ln">97   </span></a>        <span class="s1">}</span>
+<a name="l98"><span class="ln">98   </span></a>    <span class="s1">}</span>
+<a name="l99"><span class="ln">99   </span></a>
+<a name="l100"><span class="ln">100  </span></a>
+<a name="l101"><span class="ln">101  </span></a>    <span class="s3">//Alert dialog for turning on GPS</span>
+<a name="l102"><span class="ln">102  </span></a>    <span class="s0">public void </span><span class="s1">showSettingsAlert(){</span>
+<a name="l103"><span class="ln">103  </span></a>        <span class="s1">AlertDialog.Builder alertDialog = </span><span class="s0">new </span><span class="s1">AlertDialog.Builder(WeatherDetails.</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l104"><span class="ln">104  </span></a>
+<a name="l105"><span class="ln">105  </span></a>        <span class="s3">// Setting Dialog Title</span>
+<a name="l106"><span class="ln">106  </span></a>        <span class="s1">alertDialog.setTitle(</span><span class="s2">&quot;GPS Settings&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l107"><span class="ln">107  </span></a>
+<a name="l108"><span class="ln">108  </span></a>        <span class="s3">// Setting Dialog Message</span>
+<a name="l109"><span class="ln">109  </span></a>        <span class="s1">alertDialog.setMessage(</span><span class="s2">&quot;Please enable GPS Service for better performance&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l110"><span class="ln">110  </span></a>
+<a name="l111"><span class="ln">111  </span></a>        <span class="s3">// On pressing Settings button</span>
+<a name="l112"><span class="ln">112  </span></a>        <span class="s1">alertDialog.setPositiveButton(</span><span class="s2">&quot;Turn on GPS&quot;</span><span class="s0">, new </span><span class="s1">DialogInterface.OnClickListener() {</span>
+<a name="l113"><span class="ln">113  </span></a>            <span class="s0">public void </span><span class="s1">onClick(DialogInterface dialog</span><span class="s0">,int </span><span class="s1">which) {</span>
+<a name="l114"><span class="ln">114  </span></a>                <span class="s1">Intent intent = </span><span class="s0">new </span><span class="s1">Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)</span><span class="s0">;</span>
+<a name="l115"><span class="ln">115  </span></a>                <span class="s1">WeatherDetails.</span><span class="s0">this</span><span class="s1">.startActivity(intent)</span><span class="s0">;</span>
+<a name="l116"><span class="ln">116  </span></a>            <span class="s1">}</span>
+<a name="l117"><span class="ln">117  </span></a>        <span class="s1">})</span><span class="s0">;</span>
+<a name="l118"><span class="ln">118  </span></a>
+<a name="l119"><span class="ln">119  </span></a>        <span class="s3">// on pressing cancel button</span>
+<a name="l120"><span class="ln">120  </span></a>        <span class="s1">alertDialog.setNegativeButton(</span><span class="s2">&quot;Cancel&quot;</span><span class="s0">, new </span><span class="s1">DialogInterface.OnClickListener() {</span>
+<a name="l121"><span class="ln">121  </span></a>            <span class="s0">public void </span><span class="s1">onClick(DialogInterface dialog</span><span class="s0">, int </span><span class="s1">which) {</span>
+<a name="l122"><span class="ln">122  </span></a>                <span class="s1">finish()</span><span class="s0">;</span>
+<a name="l123"><span class="ln">123  </span></a>            <span class="s1">}</span>
+<a name="l124"><span class="ln">124  </span></a>        <span class="s1">})</span><span class="s0">;</span>
+<a name="l125"><span class="ln">125  </span></a>
+<a name="l126"><span class="ln">126  </span></a>        <span class="s1">alertDialog.show()</span><span class="s0">;</span>
+<a name="l127"><span class="ln">127  </span></a>    <span class="s1">}</span>
+<a name="l128"><span class="ln">128  </span></a>
+<a name="l129"><span class="ln">129  </span></a>
+<a name="l130"><span class="ln">130  </span></a>    <span class="s3">//Alert dialog for changing location permissions</span>
+<a name="l131"><span class="ln">131  </span></a>    <span class="s0">public void </span><span class="s1">showSettingsAlertPer() {</span>
+<a name="l132"><span class="ln">132  </span></a>        <span class="s1">AlertDialog.Builder alertDialog = </span><span class="s0">new </span><span class="s1">AlertDialog.Builder(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l133"><span class="ln">133  </span></a>
+<a name="l134"><span class="ln">134  </span></a>        <span class="s3">// Setting Dialog Title</span>
+<a name="l135"><span class="ln">135  </span></a>        <span class="s1">alertDialog.setTitle(</span><span class="s2">&quot;App Permissions&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l136"><span class="ln">136  </span></a>
+<a name="l137"><span class="ln">137  </span></a>        <span class="s3">// Setting Dialog Message</span>
+<a name="l138"><span class="ln">138  </span></a>        <span class="s1">alertDialog.setMessage(</span><span class="s2">&quot;Please allow location permission before continuing&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l139"><span class="ln">139  </span></a>
+<a name="l140"><span class="ln">140  </span></a>        <span class="s3">// On pressing Settings button</span>
+<a name="l141"><span class="ln">141  </span></a>        <span class="s1">alertDialog.setPositiveButton(</span><span class="s2">&quot;Allow GPS&quot;</span><span class="s0">, new </span><span class="s1">DialogInterface.OnClickListener() {</span>
+<a name="l142"><span class="ln">142  </span></a>            <span class="s0">public void </span><span class="s1">onClick(DialogInterface dialog</span><span class="s0">, int </span><span class="s1">which) {</span>
+<a name="l143"><span class="ln">143  </span></a>                <span class="s1">Intent intent = </span><span class="s0">new </span><span class="s1">Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS</span><span class="s0">,</span>
+<a name="l144"><span class="ln">144  </span></a>                        <span class="s1">Uri.fromParts(</span><span class="s2">&quot;package&quot;</span><span class="s0">, </span><span class="s1">getPackageName()</span><span class="s0">, null</span><span class="s1">))</span><span class="s0">;</span>
+<a name="l145"><span class="ln">145  </span></a>                <span class="s1">intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)</span><span class="s0">;</span>
+<a name="l146"><span class="ln">146  </span></a>                <span class="s1">startActivity(intent)</span><span class="s0">;</span>
+<a name="l147"><span class="ln">147  </span></a>            <span class="s1">}</span>
+<a name="l148"><span class="ln">148  </span></a>        <span class="s1">})</span><span class="s0">;</span>
+<a name="l149"><span class="ln">149  </span></a>
+<a name="l150"><span class="ln">150  </span></a>        <span class="s3">// on pressing cancel button</span>
+<a name="l151"><span class="ln">151  </span></a>        <span class="s1">alertDialog.setNegativeButton(</span><span class="s2">&quot;Go back&quot;</span><span class="s0">, new </span><span class="s1">DialogInterface.OnClickListener() {</span>
+<a name="l152"><span class="ln">152  </span></a>            <span class="s0">public void </span><span class="s1">onClick(DialogInterface dialog</span><span class="s0">, int </span><span class="s1">which) {</span>
+<a name="l153"><span class="ln">153  </span></a>                <span class="s1">finish()</span><span class="s0">;</span>
+<a name="l154"><span class="ln">154  </span></a>            <span class="s1">}</span>
+<a name="l155"><span class="ln">155  </span></a>        <span class="s1">})</span><span class="s0">;</span>
+<a name="l156"><span class="ln">156  </span></a>
+<a name="l157"><span class="ln">157  </span></a>        <span class="s1">alertDialog.show()</span><span class="s0">;</span>
+<a name="l158"><span class="ln">158  </span></a>    <span class="s1">}</span>
+<a name="l159"><span class="ln">159  </span></a>
+<a name="l160"><span class="ln">160  </span></a>
+<a name="l161"><span class="ln">161  </span></a>
+<a name="l162"><span class="ln">162  </span></a>    <span class="s0">public final class </span><span class="s1">weatherTask </span><span class="s0">extends </span><span class="s1">AsyncTask&lt;Void</span><span class="s0">, </span><span class="s1">Void</span><span class="s0">, </span><span class="s1">Void&gt; {</span>
+<a name="l163"><span class="ln">163  </span></a>
+<a name="l164"><span class="ln">164  </span></a>        <span class="s1">@Override</span>
+<a name="l165"><span class="ln">165  </span></a>        <span class="s0">protected void </span><span class="s1">onPreExecute() {</span>
+<a name="l166"><span class="ln">166  </span></a>            <span class="s0">super</span><span class="s1">.onPreExecute()</span><span class="s0">;</span>
+<a name="l167"><span class="ln">167  </span></a>            <span class="s3">//Toast.makeText(WeatherDetails.this,&quot;Json Data is downloading&quot;,Toast.LENGTH_SHORT).show();</span>
+<a name="l168"><span class="ln">168  </span></a>            <span class="s1">loader.setVisibility(View.VISIBLE)</span><span class="s0">;</span>
+<a name="l169"><span class="ln">169  </span></a>            <span class="s1">mainContainer.setVisibility(View.GONE)</span><span class="s0">;</span>
+<a name="l170"><span class="ln">170  </span></a>            <span class="s1">errorText.setVisibility(View.GONE)</span><span class="s0">;</span>
+<a name="l171"><span class="ln">171  </span></a>        <span class="s1">}</span>
+<a name="l172"><span class="ln">172  </span></a>
+<a name="l173"><span class="ln">173  </span></a>        <span class="s0">protected </span><span class="s1">Void doInBackground(Void... arg0) {</span>
+<a name="l174"><span class="ln">174  </span></a>            <a href="WeatherHttpHandler.java.html">WeatherHttpHandler</a> <span class="s1">sh = </span><span class="s0">new <a href="WeatherHttpHandler.java.html">WeatherHttpHandler</a></span><span class="s1">()</span><span class="s0">;</span>
+<a name="l175"><span class="ln">175  </span></a>            <span class="s3">// Making a request to url and getting response</span>
+<a name="l176"><span class="ln">176  </span></a>            <span class="s1">String url = </span><span class="s2">&quot;https://api.openweathermap.org/data/2.5/weather?lat=&quot; </span><span class="s1">+ latitude + </span><span class="s2">&quot;&amp;lon=&quot; </span><span class="s1">+ longitude + </span><span class="s2">&quot;&amp;units=metric&amp;appid=&quot; </span><span class="s1">+ API</span><span class="s0">;</span>
+<a name="l177"><span class="ln">177  </span></a>            <span class="s1">String jsonStr = sh.makeServiceCall(url)</span><span class="s0">;</span>
+<a name="l178"><span class="ln">178  </span></a>
+<a name="l179"><span class="ln">179  </span></a>
+<a name="l180"><span class="ln">180  </span></a>            <span class="s1">Log.e(TAG</span><span class="s0">, </span><span class="s2">&quot;Response from url: &quot; </span><span class="s1">+ jsonStr)</span><span class="s0">;</span>
+<a name="l181"><span class="ln">181  </span></a>            <span class="s0">if </span><span class="s1">(jsonStr != </span><span class="s0">null</span><span class="s1">) {</span>
+<a name="l182"><span class="ln">182  </span></a>                <span class="s0">try </span><span class="s1">{</span>
+<a name="l183"><span class="ln">183  </span></a>                    <span class="s1">JSONObject jsonObj = </span><span class="s0">new </span><span class="s1">JSONObject(jsonStr)</span><span class="s0">;</span>
+<a name="l184"><span class="ln">184  </span></a>                    <span class="s1">JSONObject main = jsonObj.getJSONObject(</span><span class="s2">&quot;main&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l185"><span class="ln">185  </span></a>                    <span class="s1">JSONObject sys = jsonObj.getJSONObject(</span><span class="s2">&quot;sys&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l186"><span class="ln">186  </span></a>                    <span class="s1">JSONObject wind = jsonObj.getJSONObject(</span><span class="s2">&quot;wind&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l187"><span class="ln">187  </span></a>                    <span class="s1">JSONObject weather = jsonObj.getJSONArray(</span><span class="s2">&quot;weather&quot;</span><span class="s1">).getJSONObject(</span><span class="s4">0</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l188"><span class="ln">188  </span></a>                    <span class="s0">long </span><span class="s1">updatedAt = jsonObj.getLong(</span><span class="s2">&quot;dt&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l189"><span class="ln">189  </span></a>                    <span class="s1">String updatedAtText = </span><span class="s2">&quot;Updated at: &quot; </span><span class="s1">+ (</span><span class="s0">new </span><span class="s1">SimpleDateFormat(</span><span class="s2">&quot;dd/MM/yyyy hh:mm a&quot;</span><span class="s0">, </span><span class="s1">Locale.ENGLISH)).format(</span><span class="s0">new </span><span class="s1">Date(updatedAt * (</span><span class="s0">long</span><span class="s1">) </span><span class="s4">1000</span><span class="s1">))</span><span class="s0">;</span>
+<a name="l190"><span class="ln">190  </span></a>                    <span class="s1">String temp = main.getString(</span><span class="s2">&quot;temp&quot;</span><span class="s1">) + </span><span class="s2">&quot;°C&quot;</span><span class="s0">;</span>
+<a name="l191"><span class="ln">191  </span></a>                    <span class="s1">String tempMin = </span><span class="s2">&quot;Min Temp: &quot; </span><span class="s1">+ main.getString(</span><span class="s2">&quot;temp_min&quot;</span><span class="s1">) + </span><span class="s2">&quot;°C&quot;</span><span class="s0">;</span>
+<a name="l192"><span class="ln">192  </span></a>                    <span class="s1">String tempMax = </span><span class="s2">&quot;Max Temp: &quot; </span><span class="s1">+ main.getString(</span><span class="s2">&quot;temp_max&quot;</span><span class="s1">) + </span><span class="s2">&quot;°C&quot;</span><span class="s0">;</span>
+<a name="l193"><span class="ln">193  </span></a>                    <span class="s1">String pressure = main.getString(</span><span class="s2">&quot;pressure&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l194"><span class="ln">194  </span></a>                    <span class="s1">String humidity = main.getString(</span><span class="s2">&quot;humidity&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l195"><span class="ln">195  </span></a>                    <span class="s0">long </span><span class="s1">sunrise = sys.getLong(</span><span class="s2">&quot;sunrise&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l196"><span class="ln">196  </span></a>                    <span class="s0">long </span><span class="s1">sunset = sys.getLong(</span><span class="s2">&quot;sunset&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l197"><span class="ln">197  </span></a>                    <span class="s1">String windSpeed = wind.getString(</span><span class="s2">&quot;speed&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l198"><span class="ln">198  </span></a>                    <span class="s1">String weatherDescription = weather.getString(</span><span class="s2">&quot;description&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l199"><span class="ln">199  </span></a>                    <span class="s1">String address = jsonObj.getString(</span><span class="s2">&quot;name&quot;</span><span class="s1">) + </span><span class="s2">&quot;, &quot; </span><span class="s1">+ sys.getString(</span><span class="s2">&quot;country&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l200"><span class="ln">200  </span></a>
+<a name="l201"><span class="ln">201  </span></a>
+<a name="l202"><span class="ln">202  </span></a>                    <span class="s1">runOnUiThread(</span><span class="s0">new </span><span class="s1">Runnable() {</span>
+<a name="l203"><span class="ln">203  </span></a>                        <span class="s1">@Override</span>
+<a name="l204"><span class="ln">204  </span></a>                        <span class="s0">public void </span><span class="s1">run() {</span>
+<a name="l205"><span class="ln">205  </span></a>                            <span class="s1">iAddress.setText(address)</span><span class="s0">;</span>
+<a name="l206"><span class="ln">206  </span></a>                            <span class="s1">iUpdated_at.setText(updatedAtText)</span><span class="s0">;</span>
+<a name="l207"><span class="ln">207  </span></a>                            <span class="s1">iStatus.setText(weatherDescription.toUpperCase(Locale.ROOT))</span><span class="s0">;</span>
+<a name="l208"><span class="ln">208  </span></a>                            <span class="s1">iTemp.setText(temp)</span><span class="s0">;</span>
+<a name="l209"><span class="ln">209  </span></a>                            <span class="s1">iTemp_min.setText(tempMin)</span><span class="s0">;</span>
+<a name="l210"><span class="ln">210  </span></a>                            <span class="s1">iTemp_max.setText(tempMax)</span><span class="s0">;</span>
+<a name="l211"><span class="ln">211  </span></a>                            <span class="s1">iSunrise.setText(</span><span class="s0">new </span><span class="s1">SimpleDateFormat(</span><span class="s2">&quot;hh:mm a&quot;</span><span class="s0">, </span><span class="s1">Locale.ENGLISH).format(</span><span class="s0">new </span><span class="s1">Date(sunrise * </span><span class="s4">1000</span><span class="s1">)))</span><span class="s0">;</span>
+<a name="l212"><span class="ln">212  </span></a>                            <span class="s1">iSunset.setText(</span><span class="s0">new </span><span class="s1">SimpleDateFormat(</span><span class="s2">&quot;hh:mm a&quot;</span><span class="s0">, </span><span class="s1">Locale.ENGLISH).format(</span><span class="s0">new </span><span class="s1">Date(sunset * </span><span class="s4">1000</span><span class="s1">)))</span><span class="s0">;</span>
+<a name="l213"><span class="ln">213  </span></a>                            <span class="s1">String tempWind = windSpeed + </span><span class="s2">&quot; km/h&quot;</span><span class="s0">;</span>
+<a name="l214"><span class="ln">214  </span></a>                            <span class="s1">iWind.setText(tempWind)</span><span class="s0">;</span>
+<a name="l215"><span class="ln">215  </span></a>                            <span class="s1">String tempPressure = pressure + </span><span class="s2">&quot; mbar&quot;</span><span class="s0">;</span>
+<a name="l216"><span class="ln">216  </span></a>                            <span class="s1">iPressure.setText(tempPressure)</span><span class="s0">;</span>
+<a name="l217"><span class="ln">217  </span></a>                            <span class="s1">String tempHumidity = humidity + </span><span class="s2">&quot;%&quot;</span><span class="s0">;</span>
+<a name="l218"><span class="ln">218  </span></a>                            <span class="s1">iHumidity.setText(tempHumidity)</span><span class="s0">;</span>
+<a name="l219"><span class="ln">219  </span></a>
+<a name="l220"><span class="ln">220  </span></a>                            <span class="s1">loader.setVisibility(View.GONE)</span><span class="s0">;</span>
+<a name="l221"><span class="ln">221  </span></a>                            <span class="s1">mainContainer.setVisibility(View.VISIBLE)</span><span class="s0">;</span>
+<a name="l222"><span class="ln">222  </span></a>                        <span class="s1">}</span>
+<a name="l223"><span class="ln">223  </span></a>                    <span class="s1">})</span><span class="s0">;</span>
+<a name="l224"><span class="ln">224  </span></a>
+<a name="l225"><span class="ln">225  </span></a>                <span class="s1">} </span><span class="s0">catch </span><span class="s1">(</span><span class="s0">final </span><span class="s1">JSONException e) {</span>
+<a name="l226"><span class="ln">226  </span></a>                    <span class="s1">Log.e(TAG</span><span class="s0">, </span><span class="s2">&quot;Json parsing error: &quot; </span><span class="s1">+ e.getMessage())</span><span class="s0">;</span>
+<a name="l227"><span class="ln">227  </span></a>                    <span class="s3">/* 
+<a name="l228"><span class="ln">228  </span></a>                    runOnUiThread(new Runnable() { 
+<a name="l229"><span class="ln">229  </span></a>                        @Override 
+<a name="l230"><span class="ln">230  </span></a>                        public void run() { 
+<a name="l231"><span class="ln">231  </span></a>                            Toast.makeText(getApplicationContext(), 
+<a name="l232"><span class="ln">232  </span></a>                                    &quot;Json parsing error: &quot; + e.getMessage(), 
+<a name="l233"><span class="ln">233  </span></a>                                    Toast.LENGTH_SHORT).show(); 
+<a name="l234"><span class="ln">234  </span></a>                        } 
+<a name="l235"><span class="ln">235  </span></a>                    }); 
+<a name="l236"><span class="ln">236  </span></a>                    */</span>
+<a name="l237"><span class="ln">237  </span></a>
+<a name="l238"><span class="ln">238  </span></a>                <span class="s1">}</span>
+<a name="l239"><span class="ln">239  </span></a>
+<a name="l240"><span class="ln">240  </span></a>            <span class="s1">} </span><span class="s0">else </span><span class="s1">{</span>
+<a name="l241"><span class="ln">241  </span></a>                <span class="s1">Log.e(TAG</span><span class="s0">, </span><span class="s2">&quot;Couldn't get json from server&quot;</span><span class="s1">)</span><span class="s0">;</span>
+<a name="l242"><span class="ln">242  </span></a>                <span class="s3">/* 
+<a name="l243"><span class="ln">243  </span></a>                runOnUiThread(new Runnable() { 
+<a name="l244"><span class="ln">244  </span></a>                    @Override 
+<a name="l245"><span class="ln">245  </span></a>                    public void run() { 
+<a name="l246"><span class="ln">246  </span></a>                        Toast.makeText(getApplicationContext(), 
+<a name="l247"><span class="ln">247  </span></a>                                &quot;Couldn't get json from server. Check LogCat for possible errors!&quot;, 
+<a name="l248"><span class="ln">248  </span></a>                                Toast.LENGTH_SHORT).show(); 
+<a name="l249"><span class="ln">249  </span></a>                    } 
+<a name="l250"><span class="ln">250  </span></a>                }); 
+<a name="l251"><span class="ln">251  </span></a>                */</span>
+<a name="l252"><span class="ln">252  </span></a>            <span class="s1">}</span>
+<a name="l253"><span class="ln">253  </span></a>            <span class="s0">return null;</span>
+<a name="l254"><span class="ln">254  </span></a>        <span class="s1">}</span>
+<a name="l255"><span class="ln">255  </span></a>
+<a name="l256"><span class="ln">256  </span></a>        <span class="s1">@Override</span>
+<a name="l257"><span class="ln">257  </span></a>        <span class="s0">protected void </span><span class="s1">onPostExecute(Void result) {</span>
+<a name="l258"><span class="ln">258  </span></a>            <span class="s0">super</span><span class="s1">.onPostExecute(result)</span><span class="s0">;</span>
+<a name="l259"><span class="ln">259  </span></a>        <span class="s1">}</span>
+<a name="l260"><span class="ln">260  </span></a>
+<a name="l261"><span class="ln">261  </span></a>    <span class="s1">}</span>
+<a name="l262"><span class="ln">262  </span></a><span class="s1">}</span>
+<a name="l263"><span class="ln">263  </span></a>
+<a name="l264"><span class="ln">264  </span></a></pre>
+</body>
+</html>
